@@ -33,11 +33,11 @@ class Module_Jobs extends Module {
 						),
 			'sections' => array( // ini daftar menu di dalam modul
 				'jobs' => array( // nama identitas section
-					'name' => 'jobs:jobs', // nama section yang akan ditampilkan
+					'name' => 'Jobs', // nama section yang akan ditampilkan
 					'uri' => 'admin/jobs', // alamat halaman untuk menu tersebut
 					'shortcuts' => array( // tombol-tombol shortcut yang diperlukan untuk section tersebut
                         'create' => array( // ini contoh tombol create job
-                            'name'  => 'jobs:create',
+                            'name'  => 'Post Job',
                             'uri'   => 'admin/jobs/create',
                             'class' => 'add'
                             )
@@ -69,6 +69,8 @@ class Module_Jobs extends Module {
 				'description' => array('type' => 'TEXT'),
 				'budget' => array('type' => 'VARCHAR', 'constraint' => 50, 'default' => 'not_sure'),
 				'premium' => array('type' => 'VARCHAR', 'constraint' => 15, 'default' => 'none'),
+				'status' => array('type' => 'ENUM', 'constraint' => array('pending','publish'), 'default' => 'pending'),
+				'date_expired' => array('type' => 'DATETIME'),
 				'date_created' => array('type' => 'TIMESTAMP'),
 				'date_updated' => array('type' => 'DATETIME')
 			);
