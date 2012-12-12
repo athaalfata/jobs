@@ -21,7 +21,7 @@ class Admin extends Admin_Controller {
 
 		// load class, library dan language yang diperlukan disini
 		$this->load->library('form_validation');
-		$this->load->model('jobs/jobs_m');
+		$this->load->model('project/project_m');
 
 		// set aturan validasi untuk setiap field di form
 		// diambil dari property _validation_rules di model
@@ -44,7 +44,7 @@ class Admin extends Admin_Controller {
 
 		// Create pagination links
 		$total_rows = $this->jobs_m->count_by($base_where);
-		$pagination = create_pagination('admin/jobs/index', $total_rows);
+		$pagination = create_pagination('admin/project/index', $total_rows);
 
 		// Ambil semua data jobs sesuai filter di atas
 		$jobs = $this->jobs_m->limit($pagination['limit'])->get_many_by($base_where);
